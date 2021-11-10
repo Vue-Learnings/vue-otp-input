@@ -97,6 +97,7 @@ export default {
     },
     // Change OTP value at focused input
     changeCodeAtFocus(value) {
+      alert(`from changeCodeAtFocus ${value}`);
       this.oldOtp = Object.assign([], this.otp);
       this.$set(this.otp, this.activeInput, value);
       if (this.oldOtp.join('') !== this.otp.join('')) {
@@ -111,6 +112,7 @@ export default {
         .getData('text/plain')
         .slice(0, this.numInputs - this.activeInput)
         .split('');
+        alert(`from handleOnPaste ${pastedData}`);
       if (this.inputType === 'number' && !pastedData.join('').match(/^\d+$/)) {
         return 'Invalid pasted data';
       }
